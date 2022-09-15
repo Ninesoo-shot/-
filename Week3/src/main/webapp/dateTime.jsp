@@ -11,7 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<!-- HTML 문서입니다. -->
 <%
+	/* Date date = new Date(); */
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
 	String time = sdf.format(date);
@@ -23,5 +26,6 @@
 		<%=cal.get(Calendar.MONTH)+1 %>월
 		<%=cal.get(Calendar.DATE) %>일</h1>
 <h2>현재 시각 <%=time %></h2>
+<h2>현재 시각 <%-- <%=time %> --%></h2>
 </body>
 </html>
