@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +23,24 @@ addr 파라미터 = <%=request.getParameter("addr") %>
 			out.println(values);
 		}
 	}
-%>
+%><p>
 
+<h4 style="color:red">request.getParameterNames() 메서드 사용</h4>
+<%
+	Enumeration paramEnum = request.getParameterNames();
+	while(paramEnum.hasMoreElements()){
+		String name = (String)paramEnum.nextElement();
+		out.println(name);
+	}
+%><p>
+
+<h4 style="color:red">request.getParameterMap() 메서드 사용</h4>
+<%
+	Map paramMap = request.getParameterMap();
+	String[] nameParam = (String[])paramMap.get("pet");
+	if(nameParam != null){
+		out.println(nameParam[1]);
+	}
+%>
 </body>
 </html>
